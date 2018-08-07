@@ -1,0 +1,6 @@
+
+/dist/**
+/coverage/**
+/tmp/**
+!.eslintrc.js
+src/registerServiceWorker.js
