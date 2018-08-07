@@ -4,3 +4,4 @@
 /tmp/**
 !.eslintrc.js
 src/registerServiceWorker.js
+scripts
