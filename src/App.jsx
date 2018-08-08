@@ -1,29 +1,12 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch } from 'react-router-dom';
 // import logo from './logo.svg';
 import './App.scss';
 import configureStore from './store/configureStore';
-import Form from './containers/Form';
-import Test from './containers/Teste';
+import routes from './routes';
 
 const store = configureStore();
-const generateRoutes = (value) => {
-  return value.map(item => <Route {...item} key={item.path} />);
-};
-
-const routes = [
-  {
-    path: '/',
-    exact: true,
-    component: Form,
-  },
-  {
-    path: '/test',
-    exact: true,
-    component: Test,
-  },
-];
 
 class App extends Component {
   constructor(args) {
@@ -37,7 +20,7 @@ class App extends Component {
         <div className="App">
           <BrowserRouter>
             <Switch>
-              {generateRoutes(routes)}
+              {routes}
             </Switch>
           </BrowserRouter>
         </div>
