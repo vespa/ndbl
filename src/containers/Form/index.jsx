@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 const Form = ({ test }) => {
+  console.log(arguments);
   return (
     <div>
       {test.toString()}

@@ -1,11 +1,29 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import logo from './logo.svg';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+// import logo from './logo.svg';
 import './App.scss';
 import configureStore from './store/configureStore';
 import Form from './containers/Form';
+import Test from './containers/Teste';
 
 const store = configureStore();
+const generateRoutes = (value) => {
+  return value.map(item => <Route {...item} key={item.path} />);
+};
+
+const routes = [
+  {
+    path: '/',
+    exact: true,
+    component: Form,
+  },
+  {
+    path: '/test',
+    exact: true,
+    component: Test,
+  },
+];
 
 class App extends Component {
   constructor(args) {
@@ -17,19 +35,11 @@ class App extends Component {
     return (
       <Provider store={store}>
         <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <h1 className="App-title">
-              <Form />
-            </h1>
-          </header>
-          <p className="App-intro">
-            To get started, edit
-            <code>
-              src/App.js
-            </code>
-            and save to reload.
-          </p>
+          <BrowserRouter>
+            <Switch>
+              {generateRoutes(routes)}
+            </Switch>
+          </BrowserRouter>
         </div>
       </Provider>
     );

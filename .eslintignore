@@ -5,3 +5,4 @@
 !.eslintrc.js
 src/registerServiceWorker.js
 scripts
+config
